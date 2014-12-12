@@ -1,5 +1,5 @@
 //Globals
-var port = process.env.PORT || 80;
+var PORT = process.env.PORT || 80;
 
 //server nodeJS
 var express = require('express');
