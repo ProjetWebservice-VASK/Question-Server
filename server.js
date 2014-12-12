@@ -17,7 +17,7 @@ mongoose.connect(server.get('dbUrl'),function(){
 
 //Routes
 server.get('/',function(req, res){
-  res.send('hello world');
+  res.write('hello world');
 });
 
 //Routes of the app
