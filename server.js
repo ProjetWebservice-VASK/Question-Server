@@ -4,6 +4,14 @@ var PORT = 9000;
 //server nodeJS
 var express = require('express');
 var server = express();
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/questions');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log("yay!");
+});
 
 //Routes
 server.get('/',function(req, res){
