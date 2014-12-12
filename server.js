@@ -1,5 +1,5 @@
 //Globals
-var PORT = 9000;
+var PORT = 80;
 
 //server nodeJS
 var express = require('express');
