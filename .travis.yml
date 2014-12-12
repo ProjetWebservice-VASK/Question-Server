@@ -25,4 +25,4 @@ deploy:
     secure: kPGRKQorwbNAb+h1Me3QzkOmzKlEPpLD3efqGPWGrjlIhDKwV4CMgW7HJYtuZ/1khJrD1kgqt9gLl4qI/S28dFwqJ0NhMF7T2gUevbV2MyZBm5ahxK7HmSGLS++XhH6BJdjIlJcQSGOxqk47pBaaAW7DyXPwyp3wtKmBeyh2oaA=
   app:
     master: question-server
-    develop: dev-question-server
+    develop: test-question-server
