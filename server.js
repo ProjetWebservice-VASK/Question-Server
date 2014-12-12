@@ -29,5 +29,5 @@ server.get('/',function(req, res){
 
 //Routes of the app
 server.listen(PORT, function(){
-  console.log("Question Server listening on port"+ PORT);
+  console.log("Question Server listening on port "+ PORT);
 });

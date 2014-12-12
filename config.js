@@ -1,7 +1,7 @@
 module.exports = {
   db: {
-    production: "mongodb://user:pass@example.com:1234/questions",
     development: "mongodb://localhost/questions-dev",
-    test: "mongodb://localhost/test"
+    test: "mongodb://admin:admin@ds063870.mongolab.com:63870/test-questions",
+    production: "mongodb://admin:admin@ds063870.mongolab.com:63870/questions"
   }
 };
