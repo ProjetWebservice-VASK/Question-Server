@@ -1,5 +1,5 @@
 //Globals
-var PORT = 80;
+var port = process.env.PORT || 80;
 
 //server nodeJS
 var express = require('express');
@@ -22,5 +22,5 @@ server.get('/',function(req, res){
 
 //Routes of the app
 server.listen(PORT, function(){
-  console.log("Question Server listening on port "+ PORT);
+  console.log("Question Server listening on port " + PORT);
 });
