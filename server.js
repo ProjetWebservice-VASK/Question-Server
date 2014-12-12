@@ -9,16 +9,9 @@ var config = require('./config');
 var server = express();
 
 //BDD
-/*mongoose.connect('mongodb://localhost/questions');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log("Connected to 'questions' schema!");
-});*/
 var node_env = process.env.NODE_ENV || 'development';
 server.set('dbUrl', config.db[node_env]);
 mongoose.connect(server.get('dbUrl'),function(){
-
   console.log('yepekai!');
 });
 
