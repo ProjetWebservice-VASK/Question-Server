@@ -4,3 +4,12 @@ node_js:
   - "0.10"
   - "0.8"
   - "0.6"
+  
+notifications:
+  email:
+    - k2r79@hotmail.fr
+    - mailys.airouche@gmail.com
+    - vermerschth@gmail.com
+    - souan.edouard0@gmail.com
+  on_success: change
+  on_failure: always
