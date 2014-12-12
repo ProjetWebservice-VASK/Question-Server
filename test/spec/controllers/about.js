@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 
 describe('Controller: AboutCtrl', function () {
 
@@ -15,4 +15,4 @@ describe('Controller: AboutCtrl', function () {
       $scope: scope
     });
   }));
-});*/
+});
