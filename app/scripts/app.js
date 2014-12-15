@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('questionServerApp', [
+angular.module('questionServerApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
