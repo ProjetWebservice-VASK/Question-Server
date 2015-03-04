@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var config = require('./../config');
 
-mongoose.connect('mongodb://localhost/question');
+mongoose.connect(config.db.test);
 
 var question = new mongoose.Schema({
     question: 'string',
