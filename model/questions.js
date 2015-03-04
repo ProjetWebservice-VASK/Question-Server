@@ -10,7 +10,7 @@ var question = new mongoose.Schema({
     processing: Boolean
 });
 var Question = mongoose.model('Question', question);
-var question = new Question();
-question.save();
+//var question = new Question();
+//question.save();
 
 module.exports = Question;
