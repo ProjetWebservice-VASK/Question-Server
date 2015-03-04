@@ -1,9 +1,7 @@
 var express = require('express');
-var http = require('http');
 var app = express();
+var router = require('./router');
 
-app.get('/', function (req, res) {
-    res.status(200).send("YEEEEEEEEAAAH !");
-});
+app.use('/', router);
 
 module.exports =app;
