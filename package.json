@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "mocha": "^2.1.0",
+    "mongoose": "^3.8.24",
     "supertest": "^0.15.0"
   }
 }
