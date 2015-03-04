@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var controler = require('./../controler/question.js');
 
 
 router.get('/', function (req, res) {

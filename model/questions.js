@@ -9,6 +9,7 @@ var question = new mongoose.Schema({
     processing: Boolean
 });
 var Question = mongoose.model('Question', question);
-Question.save();
+var question = new Question();
+question.save();
 
-module.exports = Questions;
+module.exports = Question;

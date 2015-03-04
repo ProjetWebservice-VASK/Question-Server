@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var router = require('./router');
+var router = require('./route/router');
 var mongoose = require('mongoose');
 
 var db = mongoose.connection;
