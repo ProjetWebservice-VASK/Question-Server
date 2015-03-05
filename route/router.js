@@ -8,6 +8,8 @@ router.get('/', function (req, res) {
     res.status(200).send("YEEEEEEEEAAAH !");
 });
 
+router.get('/next',controler.get);
+
 router.get('/:id', function (req, res) {
     Question.findOne({ _id: req.params.id }, function(err, question) {
         if (err) {
@@ -22,14 +24,12 @@ router.get('/:id', function (req, res) {
             .json(halObject.json);
     });
 });
+router.post('/1/received', controler.post);
 
-router.post('/1/received', function(req, res) {
+/*router.put('/1/answer', function(req, res) {
     res.status(204);
-});
+});*/
 
-router.put('/1/answer', function(req, res) {
-    res.status(204);
-});
 
 
 module.exports = router;

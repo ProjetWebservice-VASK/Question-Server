@@ -14,8 +14,4 @@ db.on('error', console.error.bind(console, 'connection error'));
 
 app.use('/questions', router);
 
-app.get('/', function (req, res) {
-    res.redirect('/questions');
-});
-
 module.exports =app;
