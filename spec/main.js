@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'testing';
+
 global.express = require('express');
 global.app = require('./../app');
 global.config = require('./../config');
