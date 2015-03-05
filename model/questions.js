@@ -4,8 +4,8 @@ var config = require('./../config');
 mongoose.connect(config.db.test);
 
 var question = new mongoose.Schema({
-    question: 'string',
-    answer: 'string',
+    question: String,
+    answer: String,
     date: Date,
     processing: Boolean
 });
