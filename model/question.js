@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var Question = new mongoose.Schema({
-    question: 'string',
-    answer: 'string',
+    question: String,
+    answer: String,
     date: Date,
     processing: Boolean
 });
