@@ -14,6 +14,18 @@ global.db = mongoose.connect(config.db.test, function(err) {
     }
 });
 
+describe('Server', function () {
+    before(function () {
+        app.listen(8081,function(){
+            console.log('Server started on port 8081');
+        });
+    });
+
+    after(function () {
+        app.close();
+    });
+});
+
 require('./halSpec');
 require('./appSpec');
 require('./clientSideSpec');
