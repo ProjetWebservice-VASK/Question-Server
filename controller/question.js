@@ -1,11 +1,26 @@
 var Question = require("./../model/question.js");
 
 exports.get = function(req, res){
-  Question.find({},function(err, question ){
-      if(err)handleError(err);
-      if(!question) res.status(204).send('No Content');
-      res.status(200).send(question);
-  });
+    if (req.params.id) {
+        Question.findOne({ _id: req.params.id }, function(err, question) {
+            if (err) {
+                throw err;
+            }
+
+            var halObject = new Hal(question);
+
+            res
+                .status(200)
+                .contentType('application/hal+json')
+                .json(halObject.json);
+        });
+    } else {
+        Question.find({},function(err, question ){
+            if(err)handleError(err);
+            if(!question) res.status(204).send('No Content');
+            res.status(200).send(question);
+        });
+    }
 };
 
 exports.post = function(req, res){
