@@ -27,7 +27,7 @@ describe('A Question', function () {
 
     it("can be retrieved", function(done) {
         request(app)
-            .get('/questions/' + question._id + "/")
+            .get('/questions/' + question._id + '/')
             .expect(200)
             .expect('Content-Type', /application\/hal\+json/)
             .end(function (error, res) {
