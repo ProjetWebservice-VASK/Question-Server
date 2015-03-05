@@ -4,13 +4,22 @@ var controller = require('./../controller/question.js');
 var Question = require('./../model/question');
 var Hal = require('./../lib/hal');
 
+/**
+ * Retrieving the question by ID
+ */
+router.get('/:id', controller.get);
+
+/**
+ * Creating the question
+ */
+router.post('/', controller.post);
+
 router.get('/', function (req, res) {
     res.status(200).send("YEEEEEEEEAAAH !");
 });
 
 router.get('/next', controller.get);
 
-router.get('/:id', controller.get);
 
 router.post('/1/received', controller.post);
 

@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser')
 var app = express();
 var config = require('./config');
 var router = require('./route/router');
@@ -12,6 +13,9 @@ db.once('open', function (callback) {
 });
 
 db.on('error', console.error.bind(console, 'connection error'));
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 app.use('/questions', router);
 

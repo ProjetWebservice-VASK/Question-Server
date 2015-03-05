@@ -25,8 +25,15 @@ exports.get = function(req, res){
 
 exports.post = function(req, res){
     var question = new Question(req.body);
-    question.save(function(err, question ){
-        if(err)handleError(err);
-        res.status(201).send("Created");
+
+    question.save(function(err){
+        if(err) {
+            throw err;
+        }
+
+        res
+            .status(201)
+            .location(req.baseUrl + '/' + question._id)
+            .send();
     });
 };
