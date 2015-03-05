@@ -9,6 +9,7 @@ global.Question = require('../model/question');
 global.should = require('chai').should();
 global.request = require('supertest');
 global.Hal = require('./../lib/hal');
+global.async = require('async');
 
 global.db = mongoose.createConnection(config.db.testing, function(err) {
     if (err) {
