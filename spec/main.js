@@ -8,7 +8,7 @@ global.should = require('chai').should();
 global.request = require('supertest');
 global.Hal = require('./../lib/hal');
 
-global.db = mongoose.connect(config.db.test, function(err) {
+global.db = mongoose.connect(config.db.testing, function(err) {
     if (err) {
         throw err;
     }

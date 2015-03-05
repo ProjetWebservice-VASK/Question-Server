@@ -4,7 +4,7 @@ var config = require('./config');
 var router = require('./route/router');
 var mongoose = require('mongoose');
 
-var db = mongoose.createConnection(config.db.test);;
+var db = mongoose.createConnection(config.db[(process.env.NODE_ENV || 'development')]);;
 
 db.once('open', function (callback) {
     console.log('connected');
