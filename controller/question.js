@@ -1,4 +1,5 @@
 var Question = require("./../model/question.js");
+var Hal = require('./../lib/hal');
 
 exports.get = function(req, res){
     if (req.params.id) {
