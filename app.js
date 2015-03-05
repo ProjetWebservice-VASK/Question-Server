@@ -1,9 +1,11 @@
 var express = require('express');
 var app = express();
+var config = require('./config');
 var router = require('./route/router');
 var mongoose = require('mongoose');
 
-var db = mongoose.connection;
+var db = mongoose.createConnection(config.db.test);;
+
 db.once('open', function (callback) {
     console.log('connected');
 });
