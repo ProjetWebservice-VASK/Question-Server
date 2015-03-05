@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha spec/*.js"
+    "test": "mocha spec/main.js --timeout 5000"
   },
   "repository": {
     "type": "git",
@@ -17,11 +17,13 @@
   },
   "homepage": "https://github.com/ProjetWebservice-VASK/Question-Server",
   "dependencies": {
+    "chance": "^0.7.3",
     "express": "^4.12.2",
     "http": "0.0.0",
     "mongoose": "^3.8.24"
   },
   "devDependencies": {
+    "chai": "^2.1.0",
     "mocha": "^2.1.0",
     "mongoose": "^3.8.24",
     "supertest": "^0.15.0"

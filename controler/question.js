@@ -1,2 +1,2 @@
-var Question = require("./../model/questions");
+var Question = require("./../model/question");
 
