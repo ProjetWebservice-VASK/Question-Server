@@ -1,4 +1,4 @@
-var Question = require("./../model/questions.js");
+var Question = require("./../model/question.js");
 
 exports.get = function(req, res){
   Question.find({},function(err, question ){
