@@ -5,6 +5,11 @@ var Question = require('./../model/question');
 var Hal = require('./../lib/hal');
 
 /**
+ * Retrieve all the questions
+ */
+router.get('/', controller.get);
+
+/**
  * Retrieving the question by ID
  */
 router.get('/:id', controller.get);
@@ -13,10 +18,6 @@ router.get('/:id', controller.get);
  * Creating the question
  */
 router.post('/', controller.post);
-
-router.get('/', function (req, res) {
-    res.status(200).send("YEEEEEEEEAAAH !");
-});
 
 router.get('/next', controller.get);
 

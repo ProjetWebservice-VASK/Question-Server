@@ -16,10 +16,26 @@ exports.get = function(req, res){
                 .json(halObject.json);
         });
     } else {
-        Question.find({},function(err, question ){
-            if(err)handleError(err);
-            if(!question) res.status(204).send('No Content');
-            res.status(200).send(question);
+        Question
+            .find()
+            .sort({ date: -1 })
+            .exec(function(err, questions) {
+            if (err) {
+                throw err;
+            }
+
+            if (!questions) {
+                res
+                    .status(204)
+                    .send();
+            } else {
+                var halObject = new Hal({ questions: questions });
+
+                res
+                    .status(200)
+                    .contentType('application/hal+json')
+                    .json(halObject.json);
+            }
         });
     }
 };
