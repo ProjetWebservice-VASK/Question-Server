@@ -1,7 +1,7 @@
 var request = require('supertest');
 var app = require('./../app');
 
-describe('Request to the questions Path for POST request', function () {
+describe('Request to the questions Path', function () {
     it('Should return a 201 status code', function (done) {
         request(app)
             .post('/questions/1/received')

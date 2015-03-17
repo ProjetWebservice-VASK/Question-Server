@@ -8,25 +8,17 @@ var Hal = require('./../lib/hal');
  * Retrieve all the questions
  */
 router.get('/', controller.get);
-
+router.get('/next', controller.get);
 /**
  * Retrieving the question by ID
  */
 router.get('/:id', controller.get);
-
 /**
  * Creating the question
  */
 router.post('/', controller.post);
-
-router.get('/next', controller.get);
-
-
 router.post('/1/received', controller.post);
-
-/*router.put('/1/answer', function(req, res) {
-    res.status(204);
-});*/
+router.put('/1/answer',  controller.put);
 
 
 module.exports = router;

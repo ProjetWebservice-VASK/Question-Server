@@ -56,5 +56,13 @@ exports.post = function(req, res){
 };
 
 exports.put = function(req, res) {
+    var question = new Question(req.body);
 
+    question.save(function (err) {
+        if(err) throw err;
+
+        res.status(204)
+            .location(req.baseUrl + '/' + question._id)
+            .send();
+    });
 };
