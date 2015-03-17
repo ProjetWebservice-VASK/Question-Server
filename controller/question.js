@@ -17,19 +17,20 @@ exports.get = function(req, res){
         });
     } else {
         Question
-            .find()
-            .sort({ date: -1 })
-            .exec(function(err, questions) {
+            .findOne()
+            .sort({ date: 1 })
+            .exec(function(err, question) {
             if (err) {
                 throw err;
             }
 
-            if (!questions) {
+            if (!question) {
                 res
-                    .status(204)
+                    .status(307)
                     .send();
             } else {
-                var halObject = new Hal({ questions: questions });
+                var halObject = new Hal({ questions: question });
+                question.processing = true;
 
                 res
                     .status(200)
@@ -38,6 +39,31 @@ exports.get = function(req, res){
             }
         });
     }
+};
+
+exports.getAll = function(req, res) {
+    Question
+        .find()
+        .sort({date: -1})
+        .exec(function (err, questions) {
+            if (err) {
+                throw err;
+            }
+
+            if (!questions) {
+                res
+                    .status(307)
+                    .send();
+            } else {
+                var halObject = new Hal({questions: questions});
+
+                res
+                    .status(200)
+                    .contentType('application/hal+json')
+                    .json(halObject.json);
+            }
+        });
+    ;
 };
 
 exports.post = function(req, res){

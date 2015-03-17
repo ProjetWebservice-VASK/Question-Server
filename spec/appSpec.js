@@ -1,6 +1,3 @@
-var request = require('supertest');
-var app = require('./../app');
-
 describe('Request to the questions Path', function () {
     it('Should return a 201 status code', function (done) {
         request(app)
@@ -26,7 +23,7 @@ describe('Request to the questions Path', function () {
         request(app)
             .get('/questions/next')
             .expect(200)
-            .end(function (error) {
+            .end(function (error, res) {
                 if (error) throw error;
                 done();
             });

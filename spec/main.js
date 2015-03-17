@@ -7,6 +7,7 @@ global.mongoose = require('mongoose');
 global.chance = new require('chance')();
 global.Question = require('../model/question');
 global.should = require('chai').should();
+global.expect = require('chai').expect;
 global.request = require('supertest');
 global.Hal = require('./../lib/hal');
 global.async = require('async');

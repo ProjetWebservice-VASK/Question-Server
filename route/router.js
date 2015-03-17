@@ -7,7 +7,7 @@ var Hal = require('./../lib/hal');
 /**
  * Retrieve all the questions
  */
-router.get('/', controller.get);
+router.get('/', controller.getAll);
 router.get('/next', controller.get);
 /**
  * Retrieving the question by ID
