@@ -54,3 +54,7 @@ exports.post = function(req, res){
             .send();
     });
 };
+
+exports.put = function(req, res) {
+
+};
