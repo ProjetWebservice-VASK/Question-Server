@@ -29,7 +29,7 @@ exports.get = function(req, res){
                     .status(204)
                     .send();
             } else {
-                var halObject = new Hal({ questions: question });
+                var halObject = new Hal(question);
 
                 res
                     .status(200)
