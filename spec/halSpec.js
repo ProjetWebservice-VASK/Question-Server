@@ -33,8 +33,8 @@ describe('HAL', function() {
         halObject.addLink('more', URL_TO_MORE);
 
         var halJson = halObject.json;
-        halJson._links.self.href.should.equal(URL_TO_THIS);
-        halJson._links.more.href.should.equal(URL_TO_MORE);
+        halJson._links.self.should.equal(URL_TO_THIS);
+        halJson._links.more.should.equal(URL_TO_MORE);
 
         done();
     });
