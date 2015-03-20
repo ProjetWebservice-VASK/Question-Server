@@ -26,7 +26,7 @@ exports.get = function(req, res){
 
             if (!question) {
                 res
-                    .status(307)
+                    .status(204)
                     .send();
             } else {
                 var halObject = new Hal({ questions: question });
