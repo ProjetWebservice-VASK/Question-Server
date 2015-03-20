@@ -17,8 +17,8 @@ router.get('/:id', controller.get);
  * Creating the question
  */
 router.post('/', controller.post);
-router.post('/1/received', controller.post);
-router.put('/1/answer',  controller.put);
+router.post('/:id/received', controller.createQuestion);
+router.put('/:id/answer',  controller.answerQuestion);
 
 
 module.exports = router;
