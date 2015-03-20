@@ -5,3 +5,9 @@ var app = require('./../app');
 app.listen(process.env.PORT || 8081,function(){
     console.log('Server started on port ' + (process.env.PORT || 8081));
 });
+
+var swagger = require('./../swagger');
+
+app.use('/api/json', swagger.docs.dispatcher());
+app.use('/', swagger.dispatcher());
+

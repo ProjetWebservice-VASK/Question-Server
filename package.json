@@ -22,7 +22,8 @@
     "chance": "^0.7.3",
     "express": "^4.12.2",
     "http": "0.0.0",
-    "mongoose": "^3.8.24"
+    "mongoose": "^3.8.24",
+    "swagger-framework": "^0.17.0"
   },
   "devDependencies": {
     "async": "^0.9.0",
