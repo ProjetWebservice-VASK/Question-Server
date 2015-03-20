@@ -93,7 +93,7 @@ describe('A Question', function () {
                     throw error;
                 }
 
-                var json = JSON.parse(res.text);
+                var json = JSON.parse(res.text).question;
 
                 json.question.should.equal(question.question);
                 json.date.should.equal(question.date.toISOString());
