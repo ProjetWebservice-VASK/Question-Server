@@ -49,9 +49,9 @@ exports.getAll = function(req, res) {
                 throw err;
             }
 
-            if (!questions) {
+            if (questions.length <1) {
                 res
-                    .status(307)
+                    .status(204)
                     .send();
             } else {
                 var halObject = new Hal({questions: questions});
