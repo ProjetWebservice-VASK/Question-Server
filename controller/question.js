@@ -8,7 +8,8 @@ exports.get = function(req, res){
                 throw err;
             }
 
-            var halObject = new Hal(question);
+            var halObject = new Hal({ question: question });
+
             halObject.addLink('received',req.baseUrl + '/' + question._id + '/received');
             halObject.addLink('answer',req.baseUrl + '/' + question._id + '/answer');
 
@@ -31,9 +32,11 @@ exports.get = function(req, res){
                     .status(204)
                     .send();
             } else {
-                var halObject = new Hal(question);
-                halObject.addLink('received',req.baseUrl + '/' + question._id + '/received');
-                halObject.addLink('answer',req.baseUrl + '/' + question._id + '/answer');
+                var halObject = new Hal({ question: question });
+
+                halObject.addLink('received', req.baseUrl + '/' + question._id + '/received');
+                halObject.addLink('answer', req.baseUrl + '/' + question._id + '/answer');
+
                 res
                     .status(200)
                     .contentType('application/hal+json')
