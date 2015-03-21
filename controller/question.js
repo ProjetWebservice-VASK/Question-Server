@@ -87,11 +87,13 @@ exports.createQuestion = function(req, res) {
 };
 
 exports.confirmQuestionReception = function(req, res){
-    Question.findById(req.params.id, function (err, question) {
+    var query = { _id: req.params.id };
+    var update = { processing: true };
+    var options = { upsert: false} ;
+
+    Question.findOneAndUpdate(query, update, options, function(err, question) {
         if(err) throw err;
         if(!question) res.status(404).send('Well tried !');
-
-        question.processing = true;
 
         res
             .status(204)
