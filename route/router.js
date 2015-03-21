@@ -7,17 +7,17 @@ var Hal = require('./../lib/hal');
 /**
  * Retrieve all the questions
  */
-router.get('/', controller.getAll);
-router.get('/next', controller.get);
+router.get('/', controller.getAllQuestions);
+router.get('/next', controller.getQuestion);
 /**
  * Retrieving the question by ID
  */
-router.get('/:id', controller.get);
+router.get('/:id', controller.getQuestion);
 /**
  * Creating the question
  */
-router.post('/', controller.post);
-router.post('/:id/received', controller.createQuestion);
+router.post('/', controller.createQuestion);
+router.post('/:id/received', controller.confirmQuestionReception);
 router.put('/:id/answer',  controller.answerQuestion);
 
 

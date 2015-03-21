@@ -1,7 +1,7 @@
 var Question = require("./../model/question.js");
 var Hal = require('./../lib/hal');
 
-exports.get = function(req, res){
+exports.getQuestion = function(req, res){
     if (req.params.id) {
         Question.findOne({ _id: req.params.id }, function(err, question) {
             if (err) {
@@ -46,7 +46,7 @@ exports.get = function(req, res){
     }
 };
 
-exports.getAll = function(req, res) {
+exports.getAllQuestions = function(req, res) {
     Question
         .find()
         .sort({date: -1})
@@ -71,7 +71,7 @@ exports.getAll = function(req, res) {
     ;
 };
 
-exports.post = function(req, res) {
+exports.createQuestion = function(req, res) {
     var question = new Question(req.body);
 
     question.save(function(err){
@@ -86,7 +86,7 @@ exports.post = function(req, res) {
     });
 };
 
-exports.createQuestion = function(req, res){
+exports.confirmQuestionReception = function(req, res){
     Question.findById(req.params.id, function (err, question) {
         if(err) throw err;
         if(!question) res.status(404).send('Well tried !');
@@ -94,10 +94,9 @@ exports.createQuestion = function(req, res){
         question.processing = true;
 
         res
-            .status(201)
+            .status(204)
             .location(req.baseUrl + '/' + question._id + '/received')
             .send();
-
     });
 };
 

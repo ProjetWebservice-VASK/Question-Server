@@ -26,10 +26,10 @@ describe('Request to the questions Path', function () {
     });
 
 
-    it('Should return a 201 status code', function (done) {
+    it('Should return a 204 status code', function (done) {
         request(app)
             .post('/questions/'+question_id+'/received')
-            .expect(201)
+            .expect(204)
             .end(function (error) {
                 if(error) throw error;
                 done();
