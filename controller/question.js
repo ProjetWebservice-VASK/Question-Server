@@ -103,17 +103,21 @@ exports.confirmQuestionReception = function(req, res){
 };
 
 exports.answerQuestion = function(req, res) {
-    Question.findById(req.params.id, function (err, question) {
+    var query = { _id: req.params.id };
+    var update = { answer: req.body.answer };
+    var options = { upsert: false} ;
+
+    Question.findOneAndUpdate(query, update, options, function(err, question) {
         if(err) throw err;
         if(!question) res.status(404).send('This question does not exist MOFO !');
 
-        console.log('question asked : '+question);
-        question.answer = req.body.answer;
+        console.log('question asked : ' + question);
 
         res.status(204)
             .location(req.baseUrl + '/' + question._id + '/answer')
             .send();
     });
+
     //
     //question.save(function (err) {
     //    if(err) throw err;

@@ -39,6 +39,7 @@ describe('Request to the questions Path', function () {
     it('Should return a 204 status code for PUT request',function(done) {
         request(app)
             .put('/questions/'+question_id+'/answer')
+            .send({ answer: 'Super answer' })
             .expect(204)
             .end(function (error) {
                 if (error) throw error;
