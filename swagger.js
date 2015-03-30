@@ -13,13 +13,15 @@ var questionApi = framework.api({
     produces: ['application/hal+json']
 });
 
+/**
+ * Question resource
+ */
 var questionResource = questionApi.resource({ path: '/questions' });
 
 /**
  * GET all the questions
  */
-questionResource.operation(
-    {
+questionResource.operation({
         method: 'GET',
         summary: 'Retrieve all the questions',
         notes: 'questions are ordered by descending date',
@@ -38,8 +40,7 @@ questionResource.operation(
 /**
  * POST a question
  */
-questionResource.operation(
-    {
+questionResource.operation({
         method: 'POST',
         summary: 'Create a new question',
         notes: '',
@@ -63,6 +64,65 @@ questionResource.operation(
     }
 );
 
+/**
+ * Single Question resource
+ */
+var singleQuestionResource = questionApi.resource({ path: '/questions/{id}' });
+
+/**
+ * GET a single question
+ */
+singleQuestionResource.operation({
+        method: 'GET',
+        summary: 'Retrieve a question',
+        notes: '',
+        type: 'Question',
+        nickname: 'get',
+        parameters: [
+            {
+                name: 'id',
+                description: 'ID of the question to fetch',
+                required: true,
+                type: 'string',
+                paramType: 'path'
+            }
+        ],
+        responseMessages: [
+            {
+                code: 200,
+                message: 'OK'
+            }
+        ]
+    }
+);
+
+/**
+ * Next question resource
+ */
+var nextQuestionResource = questionApi.resource({ path: '/questions/next' });
+
+/**
+ * GET the next pending question
+ */
+nextQuestionResource.operation({
+        method: 'GET',
+        summary: 'Retrieve the next pending question',
+        notes: 'once retrieved, a validation of the reception of this question must be sent',
+        type: 'Question',
+        nickname: 'getNextPending',
+        parameters: [],
+        responseMessages: [
+            {
+                code: 200,
+                message: 'OK'
+            }
+        ]
+    }
+);
+
+/**
+ * Question Model
+ */
 questionApi.model({
     id: 'Question',
     required: [],
