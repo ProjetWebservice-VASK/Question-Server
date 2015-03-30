@@ -18,6 +18,11 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 /**
+ * Swagger API endpoint
+ */
+app.use('/api', express.static(__dirname + '/swagger'));
+
+/**
  * Enable CORS
  */
 app.use(function(req, res, next) {
@@ -28,4 +33,4 @@ app.use(function(req, res, next) {
 
 app.use('/questions', router);
 
-module.exports =app;
+module.exports = app;
