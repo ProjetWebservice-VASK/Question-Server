@@ -20,7 +20,7 @@ exports.getQuestion = function(req, res){
         });
     } else {
         Question
-            .findOne()
+            .findOne({ processing: { $in: [ false, undefined, null ] } })
             .sort({ date: 1 })
             .exec(function(err, question) {
             if (err) {
@@ -68,7 +68,6 @@ exports.getAllQuestions = function(req, res) {
                     .json(halObject.json);
             }
         });
-    ;
 };
 
 exports.createQuestion = function(req, res) {
