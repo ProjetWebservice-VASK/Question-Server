@@ -17,7 +17,7 @@ router.get('/:id', controller.getQuestion);
  * Creating the question
  */
 router.post('/', controller.createQuestion);
-router.post('/:id/received', controller.confirmQuestionReception);
+router.put('/:id/processing', controller.confirmQuestionReception);
 router.put('/:id/answer',  controller.answerQuestion);
 
 

@@ -29,7 +29,7 @@ describe('Request to the questions Path', function () {
 
     it('Should return a 204 status code', function (done) {
         request(app)
-            .post('/questions/'+question_id+'/received')
+            .put('/questions/'+question_id+'/processing')
             .expect(204)
             .end(function (error) {
                 if(error) throw error;
@@ -71,7 +71,7 @@ describe('Request to the questions Path', function () {
         console.log(question.processing);
 
         request(app)
-            .post('/questions/'+question_id+'/received')
+            .put('/questions/'+question_id+'/processing')
             .expect(409)
             .end(function (error, res) {
                 if (error) throw error;

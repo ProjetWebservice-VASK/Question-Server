@@ -10,7 +10,7 @@ exports.getQuestion = function(req, res){
 
             var halObject = new Hal({ question: question });
 
-            halObject.addLink('received',req.baseUrl + '/' + question._id + '/received');
+            halObject.addLink('processing',req.baseUrl + '/' + question._id + '/processing');
             halObject.addLink('answer',req.baseUrl + '/' + question._id + '/answer');
 
             res
@@ -34,7 +34,7 @@ exports.getQuestion = function(req, res){
             } else {
                 var halObject = new Hal({ question: question });
 
-                halObject.addLink('received', req.baseUrl + '/' + question._id + '/received');
+                halObject.addLink('processing', req.baseUrl + '/' + question._id + '/processing');
                 halObject.addLink('answer', req.baseUrl + '/' + question._id + '/answer');
 
                 res
@@ -96,7 +96,7 @@ exports.confirmQuestionReception = function(req, res){
         if(question) {
             res
                 .status(204)
-                .location(req.baseUrl + '/' + question._id + '/received')
+                .location(req.baseUrl + '/' + question._id + '/processing')
                 .send();
 
         }else {
