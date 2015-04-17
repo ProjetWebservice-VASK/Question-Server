@@ -1,20 +1,21 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
+- '0.11'
+- '0.10'
 services:
-  - mongodb
-  
-before_script:
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - bower install
-  
+- mongodb
 notifications:
   email:
-    - k2r79@hotmail.fr
-    - mailys.airouche@gmail.com
-    - vermerschth@gmail.com
-    - souan.edouard0@gmail.com
+  - k2r79@hotmail.fr
+  - mailys.airouche@gmail.com
+  - vermerschth@gmail.com
+  - souan.edouard0@gmail.com
   on_success: change
   on_failure: always
+deploy:
+  provider: heroku
+  api_key:
+    secure: jq6Q5whqOJKDAOGnR1LAxcLFoIkRFRBJMSsdCdExZHEebpCmUiZAP8LDIL2eCLujn1T7iLmkmWm/xMwCVePQsXJ6BqXAdY3iBVKiCBBPXhab+zRJj0FesgbkSlViGis0EDObQMKs6CyWNyPVdeuvLvuFRD3Q4YmOBBMGEz9YsLM=
+  app:
+    master: question-server
+    develop: dev-question-server
