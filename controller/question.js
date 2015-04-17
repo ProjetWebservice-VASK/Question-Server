@@ -10,7 +10,7 @@ exports.getQuestion = function(req, res){
 
             var halObject = new Hal({ question: question });
 
-            halObject.addLink('received',req.baseUrl + '/' + question._id + '/received');
+            halObject.addLink('processing',req.baseUrl + '/' + question._id + '/processing');
             halObject.addLink('answer',req.baseUrl + '/' + question._id + '/answer');
 
             res
@@ -34,7 +34,7 @@ exports.getQuestion = function(req, res){
             } else {
                 var halObject = new Hal({ question: question });
 
-                halObject.addLink('received', req.baseUrl + '/' + question._id + '/received');
+                halObject.addLink('processing', req.baseUrl + '/' + question._id + '/processing');
                 halObject.addLink('answer', req.baseUrl + '/' + question._id + '/answer');
 
                 res
@@ -86,18 +86,24 @@ exports.createQuestion = function(req, res) {
 };
 
 exports.confirmQuestionReception = function(req, res){
-    var query = { _id: req.params.id };
+    var query = { _id: req.params.id, processing: { $in: [ false, null, undefined ] } };
     var update = { processing: true };
     var options = { upsert: false} ;
 
     Question.findOneAndUpdate(query, update, options, function(err, question) {
         if(err) throw err;
-        if(!question) res.status(404).send('Well tried !');
 
-        res
-            .status(204)
-            .location(req.baseUrl + '/' + question._id + '/received')
-            .send();
+        if(question) {
+            res
+                .status(204)
+                .location(req.baseUrl + '/' + question._id + '/processing')
+                .send();
+
+        }else {
+            res
+                .status(409)
+                .send();
+        }
     });
 };
 

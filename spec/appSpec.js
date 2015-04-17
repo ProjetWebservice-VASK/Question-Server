@@ -1,7 +1,8 @@
 describe('Request to the questions Path', function () {
 
     var question,
-        question_id;
+        question_id,
+        questionBis;
 
     beforeEach(function(done) {
         // Empty the database
@@ -28,7 +29,7 @@ describe('Request to the questions Path', function () {
 
     it('Should return a 204 status code', function (done) {
         request(app)
-            .post('/questions/'+question_id+'/received')
+            .put('/questions/'+question_id+'/processing')
             .expect(204)
             .end(function (error) {
                 if(error) throw error;
@@ -54,6 +55,26 @@ describe('Request to the questions Path', function () {
             .end(function (error, res) {
                 if (error) throw error;
                 done();
+            });
+    });
+
+    it('Should return a 409 status code for an already taken question', function(done) {
+        question.processing = true;
+
+        question.save(function (err) {
+            if (err) {
+                throw err;
+            }
+            done(err);
+        });
+
+        console.log(question.processing);
+
+        request(app)
+            .put('/questions/'+question_id+'/processing')
+            .expect(409)
+            .end(function (error, res) {
+                if (error) throw error;
             });
     });
 
