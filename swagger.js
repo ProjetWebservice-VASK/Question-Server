@@ -96,17 +96,17 @@ singleQuestionResource.operation({
 /**
  * Question received resource
  */
-var questionReceivedResource = questionApi.resource({path: '/questions/{id}/received'});
+var questionProcessingResource = questionApi.resource({path: '/questions/{id}/processing'});
 
 /**
  * POST the confirmation of the question's reception
  */
-questionReceivedResource.operation({
-    method: 'GET',
-    summary: 'Confirm the question\'s reception',
-    notes: 'has to be sent once the next pending question is retrieved',
+questionProcessingResource.operation({
+    method: 'PUT',
+    summary: 'Confirm the question\'s reception and processing by the expert system',
+    notes: 'has to be sent once the next pending question is retrieved and being processed',
     type: 'none',
-    nickname: 'confirmReception',
+    nickname: 'confirmReceptionAndProcessing',
     parameters: [
         {
             name: 'id',
@@ -120,6 +120,10 @@ questionReceivedResource.operation({
         {
             code: 204,
             message: 'No Content'
+        },
+        {
+            code: 409,
+            message: 'Conflict'
         }
     ]
 });
